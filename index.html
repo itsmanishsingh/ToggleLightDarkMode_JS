@@ -6,6 +6,10 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="./toggleButton.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.csss" /> -->
+    <script src="https://kit.fontawesome.com/5a6e447df1.js" crossorigin="anonymous"></script>
+    <!-- <script src="script.js"></script> -->
 </head>
 <body>
     <nav>
@@ -15,7 +19,7 @@
             <li><a href="#">Contact</a></li>
             
             <label class="theme-switch">
-                <input type="checkbox" class="theme-switch__checkbox">
+                <input type="checkbox" class="theme-switch__checkbox" id="themeToggle">
                 <div class="theme-switch__container">
                   <div class="theme-switch__clouds"></div>
                   <div class="theme-switch__stars-container">
@@ -37,5 +41,85 @@
         </ul>
         
     </nav>
+
+    <div class="center">
+        <div class="s1">
+            <h1>Manish Singh</h1>
+            <h2>
+                I’m a Full Stack JavaScript Developer, this is my porfolio website .
+                I am open for freelance work.
+            </h2>
+            <button>Resume
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                  </svg>
+                  
+            </button>
+        </div>
+
+        <img src="ToggleDarkLight.png" alt="MyPic" />
+    </div>
+
+    <div class="socials">
+        <div class="item">
+            <a href="#" class="fa fa-linkedin"></a>
+            <span>Manish Singh</span>
+        </div>
+        <div class="line"></div>
+        <div class="item">
+            <a href="#" class="fa fa-instagram"></a>
+            <span>@manishrajput_6</span>
+        </div>
+        <div class="line"></div>
+        <div class="item">
+            <a href="#" class="fa fa-github"></a>
+            <span>itsmanishsingh6</span>
+        </div>
+        <div class="line"></div>
+
+        <div class="item">
+            <a href="#" class="fa fa-google"></a>
+            <span> manishkumarsingh210@gmail.com</span>
+        </div>
+
+    </div>
+
 </body>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+    const storedTheme = localStorage.getItem('theme');
+    console.log(storedTheme);
+
+    if (storedTheme == 'dark') {
+        document.documentElement.style.setProperty('--main-bg-color', '#000');
+        document.documentElement.style.setProperty('--main-text-color', '#fff');
+        themeToggle.checked = true;
+    }
+    else {
+        document.documentElement.style.setProperty('--main-bg-color', '#fff');
+        document.documentElement.style.setProperty('--main-text-color', '#333');
+        themeToggle.checked = false;
+    }
+
+    themeToggle.addEventListener('change', function () {
+        if (this.checked) {
+            // Apply dark theme
+            document.documentElement.style.setProperty('--main-bg-color', '#000');
+            document.documentElement.style.setProperty('--main-text-color', '#fff');
+
+            // Save theme to local storage
+            localStorage.setItem('theme', 'dark');
+        } else {
+            // Apply light theme
+            document.documentElement.style.setProperty('--main-bg-color', '#fff');
+            document.documentElement.style.setProperty('--main-text-color', '#333');
+
+            // Save theme to local storage
+            localStorage.setItem('theme', 'light');
+        }
+    });
+    </script>
+
+
 </html>
